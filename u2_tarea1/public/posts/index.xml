@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Tarea 1</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Tarea 1</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Feb 2025 13:26:22 -0600</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mi Primer Post</title>
+      <link>http://localhost:1313/posts/mi-primer-post/</link>
+      <pubDate>Sat, 08 Feb 2025 13:26:22 -0600</pubDate>
+      <guid>http://localhost:1313/posts/mi-primer-post/</guid>
+      <description>&lt;p&gt;Este es mi primer post&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bienvenidos a Tec-Net S.A</title>
+      <link>http://localhost:1313/posts/welcome/</link>
+      <pubDate>Fri, 07 Feb 2025 22:19:07 -0600</pubDate>
+      <guid>http://localhost:1313/posts/welcome/</guid>
+      <description>&lt;p&gt;Introducción&lt;/p&gt;&#xA;&lt;p&gt;Bienvenidos a &lt;strong&gt;Tec-Net S.A&lt;/strong&gt;&#xA;Autor: &lt;em&gt;Roberto Cruz Valderrábano&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Who are we</title>
+      <link>http://localhost:1313/posts/who-are-we/</link>
+      <pubDate>Sat, 08 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/who-are-we/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
