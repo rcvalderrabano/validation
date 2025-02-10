@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Tarea 2</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Tarea 2</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Feb 2025 15:04:07 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Roberto</title>
+      <link>http://localhost:1313/posts/mi_nueva_entrada4/</link>
+      <pubDate>Sat, 08 Feb 2025 15:04:07 +0000</pubDate>
+      <guid>http://localhost:1313/posts/mi_nueva_entrada4/</guid>
+      <description>&lt;p&gt;Este es el contenido de mi nueva entrada de blog.&#xA;Puedes agregar más líneas de texto aquí.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
