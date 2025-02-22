@@ -16,5 +16,5 @@ jobs:
 
       - name: Validar Makefile
         run: |
-          cd $GITHUB_WORKSPACE
+          cd $GITHUB_WORKSPACE/u3_tarea0
           make help
