@@ -17,6 +17,7 @@ jobs:
       - name: Validar Makefile
         run: |
           cd $GITHUB_WORKSPACE/u3_tarea0
+          chmod +x setup.sh 
           ./setup.sh
           make help
           make clean
