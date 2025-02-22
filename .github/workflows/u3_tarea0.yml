@@ -1,0 +1,20 @@
+name: u3_tarea0
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *' # Ejecuta el workflow una vez al día a la medianoche UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Validar Makefile
+        run: |
+          cd $GITHUB_WORKSPACE
+          make help
