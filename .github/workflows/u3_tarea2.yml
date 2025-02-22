@@ -1,1 +1,25 @@
+name: u3_tarea2
 
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 * * *' # Ejecuta el workflow una vez al día a la medianoche UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Validar Makefile
+        run: |
+          cd $GITHUB_WORKSPACE/u3_tarea2
+          chmod +x setup.sh 
+          ./setup.sh
+          make help
+          make clean
+          make post 
+          make build
