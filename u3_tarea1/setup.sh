@@ -21,7 +21,7 @@ install_if_missing wget
 if ! command -v hugo &> /dev/null; then
     echo "Descargando e instalando Hugo..."
     wget https://github.com/gohugoio/hugo/releases/download/v0.143.1/hugo_0.143.1_linux-amd64.deb
-    dpkg -i hugo_0.143.1_linux-amd64.deb || {
+    sudo dpkg -i hugo_0.143.1_linux-amd64.deb || {
         echo "Instalando dependencias faltantes para Hugo..."
         sudo apt-get install -f -y
     }
