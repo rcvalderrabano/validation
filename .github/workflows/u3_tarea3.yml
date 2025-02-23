@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Este paso descarga el código del repositorio
+        uses: actions/checkout@v4  # Descarga el código del repositorio
 
       - name: Build Hugo site
         run: |
