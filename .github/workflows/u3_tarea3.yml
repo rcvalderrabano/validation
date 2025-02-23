@@ -41,6 +41,8 @@ jobs:
           body_path: u3_tarea3/DEPLOY.md  # Usa el archivo DEPLOY.md como cuerpo del release
           files: |
             tecnet-website.zip  # El archivo comprimido se incluye en el release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticación
 
       - name: Upload artifact (non-tag trigger)
         if: "!startsWith(github.ref, 'refs/tags/')"  # Solo se ejecuta si NO es una etiqueta
