@@ -6,9 +6,9 @@ author: "Roberto Cruz Valderrábano"
 
 # Guía de Despliegue
 
-## ¿Qué contiene el archivo `awesome-website.zip`?
+## ¿Qué contiene el archivo `tecnet-website.zip`?
 
-El archivo `awesome-website.zip` contiene:
+El archivo `tecnet-website.zip` contiene:
 
 - El binario `awesome-api.deb`, que es el ejecutable de la aplicación.
 - El directorio `dist/`, que contiene los archivos estáticos necesarios para el despliegue.
@@ -18,4 +18,4 @@ El archivo `awesome-website.zip` contiene:
 Para desarchivar el archivo, usa el siguiente comando:
 
 ```bash
-unzip awesome-website.zip
+unzip tecnet-website.zip
