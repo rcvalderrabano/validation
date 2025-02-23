@@ -2,8 +2,6 @@ name: u3_tarea3
 
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v*.*.*'  # Se activa cuando se empuja una etiqueta con formato de versión (ej. v1.0.0)
 
@@ -13,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Este paso descarga el código del repositorio
+        uses: actions/checkout@v4  # Descarga el código del repositorio
 
       - name: Build Hugo site
         run: |
@@ -43,10 +41,3 @@ jobs:
             tecnet-website.zip  # El archivo comprimido se incluye en el release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticación
-
-      - name: Upload artifact (non-tag trigger)
-        if: "!startsWith(github.ref, 'refs/tags/')"  # Solo se ejecuta si NO es una etiqueta
-        uses: actions/upload-artifact@v4  # Acción para subir artefactos
-        with:
-          name: tecnet-website  # Nombre del artefacto que se sube
-          path: tecnet-website.zip  # El archivo comprimido será el artefacto
