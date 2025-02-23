@@ -16,6 +16,7 @@ sudo apt-get update
 # Instalar make y wget si no están instalados
 install_if_missing make
 install_if_missing wget
+install_if_missing zip
 
 # Descargar e instalar Hugo si no está instalado
 if ! command -v hugo &> /dev/null; then
