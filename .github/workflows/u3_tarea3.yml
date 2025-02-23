@@ -24,7 +24,7 @@ jobs:
 
       - name: Zip Hugo site
         run: zip -r tecnet-website.zip public/  # Comprime la carpeta `public`
-
+        
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')  # Solo se ejecuta si se activa por una etiqueta
         id: create_release
@@ -38,7 +38,7 @@ jobs:
 
       - name: Upload artifact (non-tag trigger)
         if: "!startsWith(github.ref, 'refs/tags/')"  # Solo se ejecuta si no es una etiqueta
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Actualizado a v4
         with:
           name: tecnet-website
           path: tecnet-website.zip
