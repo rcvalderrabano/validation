@@ -36,7 +36,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}  
           name: ${{ github.ref_name }}  
-          body_path: DEPLOY.md  
+          body: "Nueva versión con mejoras y correcciones de errores."
           files: |
             tecnet-website.zip  # El archivo comprimido se incluye en el release
         env:
