@@ -52,6 +52,3 @@ El `Makefile` incluye los siguientes objetivos:
 - **clean**: Limpia el directorio `dist/`.
 - **post**: Crea una nueva entrada de blog.
 - **help**: Muestra la lista de objetivos y su uso.
-
-Para ver la lista completa de objetivos y su descripción, ejecuta:
-   -make help

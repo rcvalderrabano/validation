@@ -2,7 +2,7 @@
 HUGO_CMD=hugo
 DIST_DIR=dist
 POSTS_DIR=content/posts
-ZIP_FILE=dist.zip 
+ZIP_FILE=awesome-website.zip 
 
 ## build: Generar el sitio web en la ruta dist
 build:
@@ -18,7 +18,7 @@ clean:
 ## package: Crear un archivo ZIP con el binario y el directorio dist
 package: build
 	@echo "Creando el archivo $(ZIP_FILE)..."
-	zip -r $(ZIP_FILE) awesome-api.zip $(DIST_DIR)  
+	zip -r $(ZIP_FILE) awesome-api.deb $(DIST_DIR)  
 	@echo "Archivo $(ZIP_FILE) creado."
 
 ## lint: Validar los archivos README.md y DEPLOY.md con markdownlint
@@ -41,9 +41,6 @@ post:
 	@echo "Este es el contenido de mi nueva entrada de blog." >> $(POSTS_DIR)/$(POST_NAME).md
 	@echo "Puedes agregar más líneas de texto aquí." >> $(POSTS_DIR)/$(POST_NAME).md
 	@echo "Archivo markdown creado: $(POSTS_DIR)/$(POST_NAME).md"
-
-
-
 
 
 ## help: Mostrar la lista de objetivos y su uso
