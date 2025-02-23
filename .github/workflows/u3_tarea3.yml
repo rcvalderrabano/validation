@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Hugo site
-        run: 
+        run: |
           cd $GITHUB_WORKSPACE/u3_tarea3
           chmod +x setup.sh 
           ./setup.sh
