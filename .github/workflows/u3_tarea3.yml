@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Descarga el código del repositorio
+        uses: actions/checkout@v4  
 
       - name: Build Hugo site
         run: |
@@ -30,14 +30,14 @@ jobs:
           zip -r tecnet-website.zip public/  # Comprime la carpeta `public/`
 
       - name: Create GitHub Release
-        if: startsWith(github.ref, 'refs/tags/')  # Solo se ejecuta si es una etiqueta (release)
+        if: startsWith(github.ref, 'refs/tags/') 
         id: create_release
-        uses: softprops/action-gh-release@v1  # Acción para crear un release de GitHub
+        uses: softprops/action-gh-release@v1 
         with:
-          tag_name: ${{ github.ref }}  # Usa la referencia de la etiqueta como nombre del tag
-          name: ${{ github.ref_name }}  # Nombre del release, basado en la etiqueta
-          body_path: u3_tarea3/DEPLOY.md  # Usa el archivo DEPLOY.md como cuerpo del release
+          tag_name: ${{ github.ref }}  
+          name: ${{ github.ref_name }}  
+          body_path: DEPLOY.md  
           files: |
             tecnet-website.zip  # El archivo comprimido se incluye en el release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticación
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
