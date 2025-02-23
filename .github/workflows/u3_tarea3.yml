@@ -20,11 +20,17 @@ jobs:
           cd $GITHUB_WORKSPACE/u3_tarea3
           chmod +x setup.sh 
           ./setup.sh
-          make build  
+          make build
+
+      - name: List files in public directory (for debugging)
+        run: |
+          ls -la $GITHUB_WORKSPACE/u3_tarea3/public
 
       - name: Zip Hugo site
-        run: zip -r tecnet-website.zip public/  # Comprime la carpeta `public`
-        
+        run: |
+          cd $GITHUB_WORKSPACE/u3_tarea3
+          zip -r tecnet-website.zip public/  # Comprime la carpeta `public`
+
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')  # Solo se ejecuta si se activa por una etiqueta
         id: create_release
