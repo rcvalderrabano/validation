@@ -1,1 +1,43 @@
+name: u3_tarea4
 
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Se activa cuando se empuja una etiqueta con formato de versión (ej. v1.0.0)
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  
+
+      - name: Build Hugo site
+        run: |
+          cd $GITHUB_WORKSPACE/u3_tarea3  # Cambia al directorio donde está el sitio Hugo
+          chmod +x setup.sh  # Asegura que el script setup.sh sea ejecutable
+          ./setup.sh  # Ejecuta el script de configuración
+          make build  # Construye el sitio Hugo
+
+      - name: List files in public directory (for debugging)
+        run: |
+          ls -la $GITHUB_WORKSPACE/u3_tarea3/public  # Lista los archivos generados en la carpeta `public/` para depuración
+
+      - name: Zip Hugo site
+        run: |
+          cd $GITHUB_WORKSPACE/u3_tarea3  # Cambia al directorio de trabajo
+          zip -r tecnet-website.zip public/  # Comprime la carpeta `public/`
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/') 
+        id: create_release
+        uses: softprops/action-gh-release@v1 
+        with:
+          tag_name: ${{ github.ref }}  
+          name: ${{ github.ref_name }}  
+          body_path: u3_tarea3/DEPLOY.md  # Usa el archivo DEPLOY.md como cuerpo del release          
+          files: |
+            tecnet-website.zip  # El archivo comprimido se incluye en el release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
