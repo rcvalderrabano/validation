@@ -38,6 +38,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}  # Usa la referencia de la etiqueta como nombre del tag
           name: ${{ github.ref_name }}  # Nombre del release, basado en la etiqueta
+          run: cd $GITHUB_WORKSPACE/u3_tarea3
           body_path: DEPLOY.md  # Usa el archivo DEPLOY.md como cuerpo del release
           files: |
             tecnet-website.zip  # El archivo comprimido se incluye en el release
