@@ -36,7 +36,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}  
           name: ${{ github.ref_name }}  
-          body_path: DEPLOY.md  # Usa el archivo DEPLOY.md como cuerpo del release          
+          body_path: $GITHUB_WORKSPACE/u3_tarea3/DEPLOY.md  # Usa el archivo DEPLOY.md como cuerpo del release          
           files: |
             tecnet-website.zip  # El archivo comprimido se incluye en el release
         env:
