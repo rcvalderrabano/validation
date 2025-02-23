@@ -15,7 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-
       - name: Build Hugo site
         run: 
           cd $GITHUB_WORKSPACE/u3_tarea3
