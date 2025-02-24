@@ -33,3 +33,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Upload awesome-website.zip and DEPLOY.md
+        run: |
+          gh release upload "${{ github.ref_name }}" awesome-website.zip DEPLOY.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticación
