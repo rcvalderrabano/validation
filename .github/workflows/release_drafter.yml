@@ -1,7 +1,7 @@
 name: release_drafter
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Permite ejecutar el workflow manualmente
 
 jobs:
   draft_release:
@@ -14,16 +14,22 @@ jobs:
       - name: Run Release Drafter
         uses: release-drafter/release-drafter@v5
         with:
-          config-name: .github/release_drafter.yml
+          config: |
+            template: |
+              ## Qué cambio
+
+              $CHANGES
+
+              ## Nueva fucninalidad
+
+              $CONTRIBUTORS
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticación
 
   upload_assets:
-    needs: draft_release
+    needs: draft_release  # Depende del job draft_release
     runs-on: ubuntu-18.04
+
     steps:
-      - name: Upload awesome-website.zip and DEPLOY.md
-        run: |
-          gh release upload "${{ github.ref_name }}" awesome-website.zip DEPLOY.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
