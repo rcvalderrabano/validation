@@ -28,7 +28,7 @@ jobs:
 
   upload_assets:
     needs: draft_release  # Depende del job draft_release
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
