@@ -1,0 +1,46 @@
+name: u3_tarea4
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build site
+        run: |
+          cd $GITHUB_WORKSPACE/u3_tarea4
+          chmod +x setup.sh
+          ./setup.sh
+          make build
+
+      - name: List files in public directory (for debugging)
+        run: |
+          ls -la $GITHUB_WORKSPACE/u3_tarea4/public
+
+      - name: Zip Hugo site
+        run: |
+          cd $GITHUB_WORKSPACE/u3_tarea4
+          zip -r awesome-website.zip public/
+
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Validate PR
+        run: echo "Validating PR"
