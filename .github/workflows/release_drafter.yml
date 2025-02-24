@@ -11,28 +11,35 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Create release-drafter.yml dynamically
+        run: |
+          mkdir -p .github
+          cat <<EOF > .github/release-drafter.yml
+          template: |
+            ## ¿Qué cambió?
+
+            $CHANGES
+
+            ## Nueva funicionalidad 
+
+            $CONTRIBUTORS
+          EOF
+
       - name: Run Release Drafter
         uses: release-drafter/release-drafter@v5
         with:
-          config: |
-            template: |
-              ## Qué cambio
-
-              $CHANGES
-
-              ## Nueva fucninalidad
-
-              $CONTRIBUTORS
+          config-name: .github/release-drafter.yml  #
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Token de autenticación
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
 
   upload_assets:
-    needs: draft_release  # Depende del job draft_release
-    runs-on: ubuntu-latest
+    needs: draft_release 
+    runs-on: ubuntu-18.04
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Upload awesome-website.zip and DEPLOY.md
         run: |
           gh release upload "${{ github.ref_name }}" awesome-website.zip DEPLOY.md
