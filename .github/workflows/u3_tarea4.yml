@@ -2,8 +2,13 @@ name: u3_tarea4
 
 on:
   push:
+    branches:
+      - main  
     tags:
-      - 'v*.*.*'  # Se activa cuando se empuja una etiqueta con formato de versión (ej. v1.0.0)
+      - 'v*.*.*' 
+  pull_request:
+    branches:
+      - main  
 
 jobs:
   build-and-deploy:
@@ -15,10 +20,10 @@ jobs:
 
       - name: Build Hugo site
         run: |
-          cd $GITHUB_WORKSPACE/u3_tarea4  # Cambia al directorio donde está el sitio Hugo
-          chmod +x setup.sh  # Asegura que el script setup.sh sea ejecutable
-          ./setup.sh  # Ejecuta el script de configuración
-          make build  # Construye el sitio Hugo
+          cd $GITHUB_WORKSPACE/u3_tarea4 
+          chmod +x setup.sh 
+          ./setup.sh 
+          make build 
 
       - name: List files in public directory (for debugging)
         run: |
@@ -26,10 +31,10 @@ jobs:
 
       - name: Zip Hugo site
         run: |
-          cd $GITHUB_WORKSPACE/u3_tarea4  # Cambia al directorio de trabajo
-          zip -r tecnet-website.zip public/  # Comprime la carpeta `public/`
+          cd $GITHUB_WORKSPACE/u3_tarea4  
+          zip -r tecnet-website.zip public/  
 
-      - name: Create GitHub Release
+      - name: Create GitHub Release (only on tag push)
         if: startsWith(github.ref, 'refs/tags/') 
         id: create_release
         uses: softprops/action-gh-release@v1 
@@ -38,6 +43,7 @@ jobs:
           name: ${{ github.ref_name }}  
           body: "Descripción de los cambios en esta versión. Incluye mejoras, correcciones y nuevas funcionalidades."
           files: |
-            tecnet-website.zip  # El archivo comprimido se incluye en el release
+            awesome-website.zip  # El archivo comprimido se incluye en el release
+            DEPLOY.md  # Adjunta el archivo DEPLOY.md
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
