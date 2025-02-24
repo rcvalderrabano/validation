@@ -1,0 +1,8 @@
+template: |
+  ## ¿Qué cambió?
+
+  $CHANGES
+
+  ## Nuevas funcionalidades
+
+  $CONTRIBUTORS
